@@ -3,8 +3,8 @@
 SAMPLE
 ----------------------------------------
 
-Challenge: Write function named test that returns the string "This Works!". 
-Solution: This one has already been complete for you. 
+Challenge: Write function named test that returns the string "This Works!".
+Solution: This one has already been complete for you.
 
 */
 
@@ -25,8 +25,15 @@ Write function named sum that will take an array of numbers and return the sum o
 Example: if you pass it [1,2,3] then it should return 6 (which is 1 + 2 + 3)
 */
 
-
-
+let sum = (arr) => {
+  if(arr.length===0){
+    return 0;
+  }else {
+    return arr.reduce((prev,curr)=>{
+      return curr += prev;
+    })
+  }
+}
 
 
 
@@ -44,7 +51,11 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
 
-
+let doubleNumbers = (arr) => {
+  return arr.map(ele=>{
+    return ele = ele * 2;
+  })
+}
 
 
 
@@ -66,7 +77,11 @@ Examples:
 */
 
 
-
+let multiplyNumbers = (arr,num) => {
+  return arr.map(ele=>{
+    return ele = ele * num;
+  })
+}
 
 
 
@@ -84,7 +99,11 @@ Example: if you pass it "abc" then it should return "aabbcc"
 */
 
 
-
+let doubleLetters = (str) => {
+  return str.split('').map(ele=>{
+    return ele += ele;
+  }).join('')
+}
 
 
 
@@ -105,7 +124,14 @@ NOTE: you can assume each input will be the same length
 */
 
 
-
+let interleave = (arr1,arr2) => {
+  let newArr = []
+  arr1.map((ele,i) => {
+    newArr.push(ele)
+    newArr.push(arr2[i])
+  })
+  return newArr
+}
 
 
 
@@ -125,7 +151,13 @@ Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "
 */
 
 
-
+let createRange = (num,str) => {
+  let newArr = []
+  for (let i = 0; i < num; i++){
+    newArr.push(str);
+  }
+  return newArr
+}
 
 
 
@@ -144,7 +176,13 @@ If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "br
 */
 
 
-
+let flipArray = (arr) => {
+  let newObj = {}
+  arr.map((ele,i)=>{
+    newObj[ele] = i
+  })
+  return newObj
+}
 
 
 
@@ -164,7 +202,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 */
 
 
-
+let arraysToObject = (arr) => {
+  let newObj = {};
+  arr.map(ele=>{
+    newObj[ele[0]] = ele[1]
+  })
+  return newObj
+}
 
 
 
@@ -184,7 +228,13 @@ If you pass it "hello" then it should return "olleh"
 */
 
 
-
+let reverseString = (str) => {
+  let newStr = ''
+  for (let i = str.length-1; i >= 0; i--) {
+    newStr+= str[i]
+  }
+  return newStr
+}
 
 
 
@@ -208,7 +258,18 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
-
+let repeats = (str) => {
+  let num = str.length/2;
+  let str1 = str.slice(0,num);
+  let str2 = str.slice(num);
+  if(str.length%2!==0){
+    return false;
+  } else if(str1!==str2){
+    return false;
+  } else {
+    return true;
+  }
+}
 
 
 
@@ -228,7 +289,16 @@ If you pass it "abcdef" then it should return "ace" because those represent ever
 */
 
 
-
+let everyOther = (str) => {
+  let newStr = ''
+  for (let i = 0; i < str.length; i++){
+    console.log(str[i]);
+    if (i%2===0) {
+      newStr += str[i]
+    }
+  }
+  return newStr
+}
 
 
 
@@ -248,7 +318,20 @@ If you pass "aba" it should return false
 */
 
 
-
+let allEqual = (str) => {
+  let boo = true;
+  let first = ''
+  for (let i = 0; i < str.length; i++) {
+    if(first===''){
+      first = str[0]
+    } else {
+      if(first!==str[i]){
+        boo = false
+      }
+    }
+  }
+  return boo
+}
 
 
 
@@ -268,7 +351,13 @@ If you pass "246" it should return 10
 */
 
 
-
+let sumLetters = (str) => {
+  let num = 0
+  for (let i = 0; i < str.length; i++){
+    num += parseInt(str[i])
+  }
+  return num
+}
 
 
 
@@ -286,7 +375,18 @@ Example:
 If you pass "you" it should return 2
 */
 
-
+let countVowels = (str) => {
+  let vowels = ['a','e','i','o','u'];
+  let num = 0;
+  for (let i = 0; i < str.length; i++) {
+    vowels.map(ele=>{
+      if(ele===str[i]){
+        num += 1
+      }
+    })
+  }
+  return num;
+}
 
 
 
@@ -794,4 +894,4 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 
 
 
-// 
+//
